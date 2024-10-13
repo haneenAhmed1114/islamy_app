@@ -25,16 +25,31 @@ class _SebhaScreenState extends State<SebhaScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Transform.rotate(
-            angle: rotateAngle,
-            child: Image(
-              height: 170.0,
-              image: AssetImage(
-                !isDark?
-                AppAssets.sebhaLogo : AppAssets.sebhaIconDark,
+          Stack(
+            alignment: Alignment.topCenter,
+            clipBehavior: Clip.none,
+            children: [
+              Transform.rotate(
+                angle: rotateAngle,
+                child: Image(
+                  height: 170.0,
+                  image: AssetImage(
+                    !isDark?
+                    AppAssets.sebhaLogo : AppAssets.sebhaIconDark,
+                  ),
+                  fit: BoxFit.cover,
+                ),
               ),
-              fit: BoxFit.cover,
-            ),
+              Positioned(
+                top: -80.0,
+                right: 18,
+                child: Image(
+                    image: AssetImage(
+                  !isDark?
+                  AppAssets.headSebhaLogo : AppAssets.headSebhaDark,
+                )),
+              ),
+            ],
           ),
           Text(
             'عدد التسبيحات',
